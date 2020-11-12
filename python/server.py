@@ -5,10 +5,7 @@ import json
 import pymongo
 
 credentials = pika.PlainCredentials("sopes1","sopes1")
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='35.225.47.35',port=5672,credentials=credentials)
-)
-
+connection = pika.BlockingConnection(pika.ConnectionParameters("35.225.47.35",5672,credentials=credentials))
 channel = connection.channel()
 
 channel.queue_declare(queue='proyecto2', durable=True)
@@ -68,5 +65,5 @@ def callback(ch, method, properties, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(queue='proyecto2', on_message_callback= callback)
+channel.basic_consume(queue='proyecto2', on_message_callback= callback,auto_ack=True)
 channel.start_consuming()
