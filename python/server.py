@@ -12,9 +12,14 @@ channel.queue_declare(queue='proyecto2', durable=True)
 print(' Esperando por mensajes')
 
 def convert(data):
-    if isinstance(data, bytes):  return data.decode('ascii')
-    if isinstance(data, dict):   return dict(map(convert, data.items()))
-    if isinstance(data, tuple):  return map(convert, data)
+    if isinstance(data, bytes):  
+        return data.decode('ascii')
+    elif isinstance(data, dict):   
+        return dict(map(convert, data.items()))
+    elif isinstance(data, tuple):  
+        return map(convert, data)
+    else:
+        print("no se que es")
     return data
 
 #MONGODB
