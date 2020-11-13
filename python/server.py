@@ -70,5 +70,5 @@ def callback(ch, method, properties, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(queue='proyecto2', on_message_callback= callback,no_ack=True)
+channel.basic_consume(queue='proyecto2', on_message_callback= callback,auto_ack=False)
 channel.start_consuming()
