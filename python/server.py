@@ -26,11 +26,11 @@ def convert(data):
 db = "CORONAVIRUS"
 collection = "PACIENTES" #Mismo valor para mongo y redis
 #DEFINICION DE LLAVES PARA EL JSON
-NOMBRE = "nombre"
-DEPARTAMENTO = "departamento"
-EDAD = "edad"
-FORMA = "forma de contagio"
-ESTADO = "estado"
+NOMBRE = "name"
+DEPARTAMENTO = "location"
+EDAD = "age"
+FORMA = "infectedtype"
+ESTADO = "state"
 
 #REDIS
 CONTADOR = "CONTADOR"
