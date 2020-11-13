@@ -58,7 +58,7 @@ def callback(ch, method, properties, body):
     #redis
     r = redis.StrictRedis(host=IPREDIS, port=6379,db=0)
     pivote = convert(r.get(CONTADOR))
-
+    print("esto trae el contador    ", pivote)
     r.hset(collection,NOMBRE+"["+pivote+"]", y[NOMBRE])
     r.hset(collection,DEPARTAMENTO+"["+pivote+"]", y[DEPARTAMENTO])
     r.hset(collection,EDAD+"["+pivote+"]", y[EDAD])
