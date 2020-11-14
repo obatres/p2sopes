@@ -34,7 +34,7 @@ ESTADO = "state"
 
 #REDIS
 CONTADOR = "CONTADOR"
-IPREDIS = "35.225.47.35"
+IPREDIS = "35.224.249.130"
 
 myclient = pymongo.MongoClient(host=IPREDIS, port=5004)
 mydb = myclient[convert(db)]

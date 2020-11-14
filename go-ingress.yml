@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+      kubernetes.io/ingress.class: nginx
+  name: go-ingress
+spec:
+  rules:
+    - host: url
+      http:
+        paths:
+          - backend:
+              serviceName: golb-service
+              servicePort: 8080
+            path: /
