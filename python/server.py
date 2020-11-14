@@ -36,7 +36,7 @@ ESTADO = "state"
 CONTADOR = "CONTADOR"
 IPREDIS = "35.224.249.130"
 
-myclient = pymongo.MongoClient(host=IPREDIS, port=5004)
+myclient = pymongo.MongoClient(host=IPREDIS, port=27017)
 mydb = myclient[convert(db)]
 mycol = mydb[convert(collection)]
 collist = mydb.list_collection_names()
