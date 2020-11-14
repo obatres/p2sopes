@@ -1,4 +1,6 @@
-FROM python:latest
+FROM alpine
+
+RUN apk add py3-pip --no-cache python3-dev && pip3 install --upgrade pip
 
 WORKDIR /app
 COPY /requirements.txt /app
